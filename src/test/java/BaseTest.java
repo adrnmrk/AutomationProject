@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
     public WebDriver driver;
 
+
     @BeforeClass
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");

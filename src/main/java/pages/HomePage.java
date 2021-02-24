@@ -7,14 +7,16 @@ import org.openqa.selenium.WebDriver;
  */
 
 public class HomePage {
-    private WebDriver driver;
+    protected WebDriver driver;
 
-    public HomePage(WebDriver driver) { this.driver = driver;    }
+    public HomePage(WebDriver driver) { this.driver = driver;   }
 
-    public SignInPage clickSignIn() {
-        driver.findElement(By.linkText("Sign in")).click();
-        return new SignInPage(driver);
+    private By signIn = By.className("login");
+
+
+    public HomePage homePage() {
+        driver.findElement(signIn).click();
+        return new HomePage(driver);
     }
-
 
 }

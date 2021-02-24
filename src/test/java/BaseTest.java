@@ -4,18 +4,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import pages.HomePage;
+import pages.SignInPage;
+
+import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     public WebDriver driver;
-    protected HomePage homePage;
 
     @BeforeClass
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("http://automationpractice.com/index.php");
-
-        homePage = new HomePage(driver);
 
     }
 

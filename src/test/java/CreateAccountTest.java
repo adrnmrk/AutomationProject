@@ -3,9 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pages.HomePage;
 import pages.HomePage.*;
 import pages.SignInPage;
@@ -13,9 +11,16 @@ import pages.CreateAccountPage;
 
 
 public class CreateAccountTest extends BaseTest{
-    //instantiate objects/pages
-    HomePage homePage = new HomePage(driver);
-    SignInPage signIn = new SignInPage(driver);
+//declare pages to be used in this test. If you want to perform tests on the other pages, add them here!
+    HomePage homePage;
+    SignInPage signIn;
+//annotate to run the setUp method from the BaseTest. This is used to prep the webdriver
+    @BeforeClass
+    public void setUpTest (){
+        //instantiate objects/pages
+        homePage = new HomePage(driver);
+        signIn = new SignInPage(driver);
+     }
 
     @Test
     public void testSignIn() {

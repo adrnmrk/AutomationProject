@@ -8,9 +8,10 @@ import org.openqa.selenium.WebDriver;
 
 public class HomePage {
     protected WebDriver driver;
+    public HomePage(WebDriver driver) {
+        this.driver = driver;   }
 
-    public HomePage(WebDriver driver) { this.driver = driver;   }
-
+    //create objects/methods for interacting with this page's elements
     private By signIn = By.className("login");
 
 

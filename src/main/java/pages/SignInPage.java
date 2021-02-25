@@ -9,9 +9,9 @@ import org.openqa.selenium.By;
 
 public class SignInPage {
     protected WebDriver driver;
-
     public SignInPage(WebDriver driver) { this.driver = driver; }
 
+    //create objects/methods for interacting with this page's elements
     private By createEmailBy = By.id("email_create");
     private By createAccount = By.name("SubmitCreate");
 

@@ -1,13 +1,10 @@
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.HomePage.*;
 import pages.SignInPage;
-import pages.CreateAccountPage;
 
 
 public class CreateAccountTest extends BaseTest{
@@ -17,28 +14,23 @@ public class CreateAccountTest extends BaseTest{
 //annotate to run the setUp method from the BaseTest. This is used to prep the webdriver
     @BeforeClass
     public void setUpTest (){
-        //instantiate objects/pages
+        //instantiate objects/pages and test data to use
         homePage = new HomePage(driver);
         signIn = new SignInPage(driver);
-     }
-
-    @Test
-    public void testSignIn() {
         homePage.homePage();
         signIn.signIn("test@email.com");
-
-        WebElement header = driver.findElement(By.tagName("h3"));
-        Assert.assertEquals("CREATE AN ACCOUNT", header.getText());
-
-         }
-
-    //@Test
-    //public void testEmailUsed() {
-        //SignInPage signInPage = new SignInPage(driver);
-
-      //  WebElement emailUsed = driver.findElement(By.xpath("//*[@id='email']"));
-        //System.out.println(emailUsed);
-
- // }
+    }
+    @Test
+    public void testSignIn() {
+        String header = driver.findElement(By.className("page-subheading")).getText();
+        Assert.assertEquals("CREATE AN ACCOUNT", header);
+        System.out.println(header);
+    }
+    @Test
+    public void testEmailUsed() {
+        String emailCreate = driver.findElement(By.name("email_create")).getAttribute("value");
+        Assert.assertEquals("test@email.com", emailCreate);
+        System.out.println(emailCreate);
+ }
 }
 

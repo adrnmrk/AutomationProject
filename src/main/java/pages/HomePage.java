@@ -14,10 +14,8 @@ public class HomePage {
     //create objects/methods for interacting with this page's elements
     private By signIn = By.className("login");
 
-
-    public HomePage homePage() {
+    public void goToSignInPage() {
         driver.findElement(signIn).click();
-        return new HomePage(driver);
     }
 
 }

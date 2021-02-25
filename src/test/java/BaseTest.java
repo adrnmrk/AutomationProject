@@ -13,14 +13,12 @@ import org.testng.annotations.BeforeTest;
 public class BaseTest {
     public WebDriver driver;
 
-
     @BeforeClass
-    public void startTest() {
+    public void setUp() {
     System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
     driver = new ChromeDriver();
     driver.get("http://automationpractice.com/index.php");
     driver.manage().window().maximize();
-
     }
 
     @AfterClass

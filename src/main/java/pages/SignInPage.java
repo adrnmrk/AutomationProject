@@ -13,15 +13,24 @@ public class SignInPage {
 
     //create objects/methods for interacting with this page's elements
     private By createEmailBy = By.id("email_create");
-    private By createAccount = By.name("SubmitCreate");
+    private By createAccountButton = By.name("SubmitCreate");
+    private By signInEmail = By.id("email");
+    private By userPassword = By.id("passwd");
+    private By signInButton = By.name("SubmitLogin");
 
 
-    public SignInPage signIn (String createEmail){
+    public void createNewAccount (String createEmail) {
         driver.findElement(createEmailBy).sendKeys(createEmail);
-        driver.findElement(createAccount).click();
-        return new SignInPage(driver);
+        driver.findElement(createAccountButton).click();
+    }
+    public void signInValidUser (String userName, String password) {
+        driver.findElement(signInEmail).sendKeys(userName);
+        driver.findElement(userPassword).sendKeys(password);
+        driver.findElement(signInButton).click();
+        //do I need to return anything or add assertions after logging in? Add it in the testclass
+
 
     }
 
-
 }
+

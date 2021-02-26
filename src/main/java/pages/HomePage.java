@@ -8,14 +8,20 @@ import org.openqa.selenium.WebDriver;
 
 public class HomePage {
     protected WebDriver driver;
-    public HomePage(WebDriver driver) {
-        this.driver = driver;   }
+
+    public HomePage(WebDriver driver) { this.driver = driver; }
 
     //create objects/methods for interacting with this page's elements
-    private By signIn = By.className("login");
+    private By signInButton = By.className("login");
+    private By returnToHome = By.xpath("//*[@id=\"header_logo\"]/a/img");
+    private By searchBar = By.name("search_query");
+    //check if viewShoppingCart is correct
+    private By viewShoppingCart = By.cssSelector("div:contains('shopping_cart')");
+
+
 
     public void goToSignInPage() {
-        driver.findElement(signIn).click();
+        driver.findElement(signInButton).click();
     }
 
 }

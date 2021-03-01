@@ -23,7 +23,7 @@ public class SignInPage {
         driver.findElement(createEmailBy).sendKeys(createEmail);
         driver.findElement(createAccountButton).click();
     }
-    public void signInValidUser (String userName, String password) {
+    public void validUserSignIn (String userName, String password) {
         driver.findElement(signInEmail).sendKeys(userName);
         driver.findElement(userPassword).sendKeys(password);
         driver.findElement(signInButton).click();

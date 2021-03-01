@@ -27,7 +27,7 @@ public class SignInPage {
         driver.findElement(signInEmail).sendKeys(userName);
         driver.findElement(userPassword).sendKeys(password);
         driver.findElement(signInButton).click();
-        //do I need to return anything or add assertions after logging in? Add it in the testclass
+        //do I need to return anything or add assertions after logging in? Add it in the test class
 
 
     }

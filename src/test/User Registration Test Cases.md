@@ -28,3 +28,13 @@
 5. In the *Account Creation* page, do not fill out any of the mandatory fields (marked with &ast;);
 6. Select the **Register** button.
 7. Validate that error messages are displayed for the mandatory fields.
+
+### Test Case ID 04: Verify Error Messages for Entering Incorrect or Invalid values in the registration fields. 
+1. Open the [automation](http://automationpractice.com/index.php) practice site.
+2. Select the **Sign In** button.
+3. From the *Create an Account* section, enter a valid email address.
+4. Select the **Create an Account** button.
+5. In the *Account Creation* page, enter incorrect or invalid values in the fields. For example, entering only *numbers* in the first name, last name, or city fields; entering only *alphabets* in the mobile number or postal code fields. 
+6. Select the **Register** button.
+7. Verify that the error messages for the appropriate fields appear.
+

@@ -25,11 +25,11 @@
 2. Select the **Sign In** button.
 3. From the *Create an Account* section, enter a valid email address.
 4. Select the **Create an Account** button.
-5. In the *Account Creation* page, do not fill out any of the mandatory fields (marked with &ast;);
+5. In the *Account Creation* page, do not fill out any of the mandatory fields (marked with &ast;).
 6. Select the **Register** button.
 7. Validate that error messages are displayed for the mandatory fields.
 
-### Test Case ID 04: Verify Error Messages for Entering Incorrect or Invalid values in the registration fields. 
+### Test Case ID 04: Verify Error Messages for Entering Incorrect or Invalid Values in the Registration Fields. 
 1. Open the [automation](http://automationpractice.com/index.php) practice site.
 2. Select the **Sign In** button.
 3. From the *Create an Account* section, enter a valid email address.

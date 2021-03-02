@@ -34,7 +34,7 @@
 2. Select the **Sign In** button.
 3. From the *Create an Account* section, enter a valid email address.
 4. Select the **Create an Account** button.
-5. In the *Account Creation* page, enter incorrect or invalid values in the fields. For example, entering only *numbers* in the first name, last name, or city fields; entering only *alphabets* in the mobile number or postal code fields. 
+5. In the *Account Creation* page, enter incorrect or invalid values in the fields. For example, entering only *numbers* in the **first name**, **last name**, or **city** fields; entering only *alphabets* in the **mobile number** or **postal code** fields, and so forth.
 6. Select the **Register** button.
 7. Verify that the error messages for the appropriate fields appear.
 

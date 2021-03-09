@@ -15,6 +15,8 @@ public class SignInPage {
     private By createEmailBy = By.id("email_create");
     private By createAccountButton = By.name("SubmitCreate");
     private By signInEmail = By.id("email");
+    private By signInInvalidEmail = By.id("email");
+    private By signInUnavailableEmail = By.id("email");
     private By userPassword = By.id("passwd");
     private By signInButton = By.name("SubmitLogin");
 
@@ -23,6 +25,7 @@ public class SignInPage {
         driver.findElement(createEmailBy).sendKeys(createEmail);
         driver.findElement(createAccountButton).click();
     }
+
     public void validUserSignIn (String userName, String password) {
         driver.findElement(signInEmail).sendKeys(userName);
         driver.findElement(userPassword).sendKeys(password);

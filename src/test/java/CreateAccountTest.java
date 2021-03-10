@@ -20,30 +20,22 @@ public class CreateAccountTest extends BaseTest{
         signIn = new SignInPage(driver);
         homePage.goToSignInPage();
         signIn.createNewAccount("testValid@email.com");
-        signIn.createNewAccount("test@email.com");
+
     }
     @Test
     public void testClickSignInButton() {
-        String header = driver.findElement(By.className("page-subheading")).getText();
-        Assert.assertEquals("CREATE AN ACCOUNT", header);
-        System.out.println(header);
+        String checkHeader = driver.findElement(By.className("page-subheading")).getText();
+        Assert.assertEquals("CREATE AN ACCOUNT", checkHeader);
+        System.out.println(checkHeader);
     }
-    //check if email used for registration is invalid
+    //check if valid email address is accepted
     @Test
-    public void testRegisterInvalidEmail() {
-        String invalidEmailCreate = driver.findElement(By.name("email_create")).getAttribute("value");
-    }
-    //check if email used for registration is already taken
-    @Test
-    public void testRegisterTakenEmail(){
-        String invalidTakenEmail = driver.findElement(By.name("email_create")).getAttribute("value")
-    }
-    @Test
-    public void testCheckEmailUsed() {
+    public void testEmailSignup() {
         String emailCreate = driver.findElement(By.name("email_create")).getAttribute("value");
-        Assert.assertEquals("testValid@email.com", emailCreate);
+        Assert.assertEquals(emailCreate, "testValid@email.com");
         System.out.println(emailCreate);
     }
+
 
 
 }

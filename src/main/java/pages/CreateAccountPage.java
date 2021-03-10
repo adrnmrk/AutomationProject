@@ -13,11 +13,21 @@ public class CreateAccountPage {
     public CreateAccountPage(WebDriver driver) { this.driver = driver; }
 
     //create objects/methods for interacting with this page's elements
-    private By pageSubHeading = By.cssSelector("h3[class=‘page-subheading’]");
+    private By pageSubHeading = By.xpath("//h3[@class='page-subheading'][1]");
+    private By titleGender = By.name("id_gender");
+    private By firstName = By.id("customer_firstname");
+    private By lastName = By.id("customer_lastname");
+    private By email = By.id("email");
+    private By password = By.id("passwd");
+
+
 
     public void goToSignInPage() {
-        driver.findElement(signInButton).click();
+        driver.findElement(pageSubHeading).getText();
+    }
+    public void selectTitle() {
+        driver.findElement(titleGender).click();
     }
 
 }
-}
+

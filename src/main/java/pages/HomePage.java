@@ -33,14 +33,14 @@ public class HomePage {
     public void goToContactPage() {
         driver.findElement(contactButton).click();
     }
-    public void goToHomePage() { driver.findElement(returnToHome); }
-    public void useSearch() { driver.findElement(searchBar); }
-    public void showShoppingCart() { driver.findElement(viewShoppingCart); }
-    public void showCategoryWomen() { driver.findElement(shopForWomen); }
-    public void showCategoryDresses() { driver.findElement(shopDresses); }
-    public void showCategoryTshirt() { driver.findElement(shopTshirt); }
-    public void showPopular() { driver.findElement(popularProducts); }
-    public void showBestSellers() { driver.findElement(bestSellers); }
+    public void goToHomePage() { driver.findElement(returnToHome).click(); }
+    public void useSearch() { driver.findElement(searchBar).click(); }
+    public void showShoppingCart() { driver.findElement(viewShoppingCart).click(); }
+    public void showCategoryWomen() { driver.findElement(shopForWomen).click(); }
+    public void showCategoryDresses() { driver.findElement(shopDresses).click(); }
+    public void showCategoryTshirt() { driver.findElement(shopTshirt).click(); }
+    public void showPopular() { driver.findElement(popularProducts).click(); }
+    public void showBestSellers() { driver.findElement(bestSellers).click(); }
 
 
 

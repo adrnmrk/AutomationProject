@@ -17,9 +17,12 @@ public class CreateAccountPage {
     private By titleGender = By.name("id_gender");
     private By firstName = By.id("customer_firstname");
     private By lastName = By.id("customer_lastname");
+    private By companyName = By.id("company");
     private By email = By.id("email");
     private By password = By.id("passwd");
-
+    private By dateOfBirthDay = By.id("days");
+    private By dateOfBirthMonth = By.id("months");
+    private By dateOfBirthYear = By.id("years");
 
 
     public void goToSignInPage() {
@@ -27,6 +30,28 @@ public class CreateAccountPage {
     }
     public void selectTitle() {
         driver.findElement(titleGender).click();
+    }
+    public void enterFirstName() {
+        driver.findElement(firstName).click();
+    }
+    public void enterLastName() {
+        driver.findElement(lastName).click();
+    }
+    public void enterCompanyName() {
+        driver.findElement(companyName).click();
+    }
+    //check if the registered email from the previous page is used
+    public void getEmail() {
+        driver.findElement(email).getText();
+    }
+    public void setDateOfBirthDay(){
+        driver.findElement(dateOfBirthDay).click();
+    }
+    public void setDateOfBirthMonth(){
+        driver.findElement(dateOfBirthMonth).click();
+    }
+    public void setDateOfBirthYear(){
+        driver.findElement(dateOfBirthYear).click();
     }
 
 }

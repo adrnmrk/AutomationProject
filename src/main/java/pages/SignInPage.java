@@ -12,21 +12,21 @@ public class SignInPage {
     public SignInPage(WebDriver driver) { this.driver = driver; }
 
     //create objects/methods for interacting with this page's elements
-    private By createEmailBy = By.id("email_create");
+    private By newEmail = By.id("email_create");
     private By createAccountButton = By.name("SubmitCreate");
     private By signInEmail = By.id("email");
     private By userPassword = By.id("passwd");
     private By signInButton = By.name("SubmitLogin");
 
 
-    public void createNewAccount (String createEmail) {
-        driver.findElement(createEmailBy).sendKeys(createEmail);
-        driver.findElement(createAccountButton).click();
+    public void createNewAccount (String newEmail) {
+        driver.findElement(this.newEmail).sendKeys(newEmail);
+        driver.findElement(this.createAccountButton).click();
     }
-
-
-
-
-
+    public void signIn(String signInEmail, String userPassword){
+        driver.findElement(this.signInEmail).sendKeys(signInEmail);
+        driver.findElement(this.userPassword).sendKeys(userPassword);
+        driver.findElement(this.signInButton).click();
+    }
 }
 

@@ -6,6 +6,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * This BaseTest is used for launching and closing the driver for all tests
  */
@@ -19,6 +21,9 @@ public class BaseTest {
     driver = new ChromeDriver();
     driver.get("http://automationpractice.com/index.php");
     driver.manage().window().maximize();
+
+    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
     }
 
     @AfterClass

@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 /**
  *Use this class to add and interact with the links and objects in the Account Creation page. Add methods for objects as required.
@@ -16,8 +17,8 @@ public class CreateAccountPage {
     private By pageSubHeading = By.xpath("//h3[@class='page-subheading'][1]");
     private By titleMr = By.cssSelector("input#id_gender1");
     private By titleMrs = By.cssSelector("input#id_gender2");
-    private By firstName = By.id("customer_firstname");
-    private By lastName = By.id("customer_lastname");
+    private By firstName = By.name("customer_firstname");
+    private By lastName = By.name("customer_lastname");
     private By companyName = By.id("company");
     private By email = By.id("email");
     private By password = By.id("passwd");
@@ -32,14 +33,33 @@ public class CreateAccountPage {
     public void goToSignInPage() {
         driver.findElement(this.pageSubHeading).getText();
     }
-    public void getTitleMr() {
-        driver.findElement(this.titleMr).click();
+    public void clickTitleMr() {
+        getTitleMr().click();
     }
-    public void getTitleMrs() {
-        driver.findElement(this.titleMrs).click();
+
+    public WebElement getTitleMr() {
+        return driver.findElement(this.titleMr);
     }
-    public void getFirstName(String firstName) {
+
+    public void clickTitleMrs() {
+        getTitleMrs().click();
+    }
+
+    public WebElement getTitleMrs() {
+        return driver.findElement(this.titleMrs);
+    }
+
+    public String getTitle(){
+        if (getTitleMrs().isSelected())
+            return "Mrs";
+        if(getTitleMr().isSelected())
+            return "Mr";
+        return "";
+    }
+
+    public String setFirstName(String firstName) {
         driver.findElement(this.firstName).sendKeys(firstName);
+        return firstName;
     }
     public void getLastName(String lastName) {
         driver.findElement(this.lastName).sendKeys(lastName);

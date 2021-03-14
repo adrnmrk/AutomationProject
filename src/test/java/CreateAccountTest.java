@@ -1,12 +1,13 @@
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import org.testng.annotations.Test;
 import pages.CreateAccountPage;
 import pages.HomePage;
 import pages.SignInPage;
+
+import java.util.concurrent.TimeUnit;
 
 
 public class CreateAccountTest extends BaseTest{
@@ -15,18 +16,21 @@ public class CreateAccountTest extends BaseTest{
     SignInPage signIn;
     CreateAccountPage createAccount;
 
+
     //annotate to run the setUp method from the BaseTest. This is used to prep the webdriver
     @BeforeClass
     public void setUpTest (){
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
         //instantiate objects/pages and test data to use
         homePage = new HomePage(driver);
         signIn = new SignInPage(driver);
         createAccount = new CreateAccountPage(driver);
         homePage.goToSignInPage();
         signIn.createNewAccount("testValid@email.com");
-        createAccount.getTitleMr();
-        createAccount.getTitleMrs();
-        createAccount.getFirstName("Ronaldo");
+        createAccount.clickTitleMr();
+        createAccount.clickTitleMrs();
+        createAccount.setFirstName("Ronaldo");
         createAccount.getLastName("Mcdonaldo");
         createAccount.getEmail();
         createAccount.setPassword("Password123");
@@ -47,16 +51,18 @@ public class CreateAccountTest extends BaseTest{
         String emailCreate = driver.findElement(By.name("email_create")).getAttribute("value");
         Assert.assertEquals(emailCreate, "testValid@email.com");
         System.out.println(emailCreate);
+
     }
     @Test
-    public void testRegistration(){
-        String title = driver.findElement(By.cssSelector("input#id_gender2")).getText();
-        Assert.assertEquals(title, "Mrs.");
+    public void testRegistration() {
+        createAccount.getTitleMrs().click();
+        boolean title = createAccount.getTitleMrs().isSelected();
+        Assert.assertTrue(title);
+        System.out.println(title);
 
-        String checkFirstName = driver.findElement(By.id("customer_firstname")).getText();
-        Assert.assertEquals(checkFirstName, "Ronaldo");
-
-        System.out.println(title + checkFirstName);
+        String firstName = createAccount.setFirstName("Ronaldo");
+        Assert.assertEquals(firstName, "Ronaldo");
+        System.out.println(firstName);
 
     }
 

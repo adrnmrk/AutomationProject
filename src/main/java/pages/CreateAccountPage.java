@@ -13,7 +13,7 @@ public class CreateAccountPage {
 
     public CreateAccountPage(WebDriver driver) { this.driver = driver; }
 
-    //create objects/methods for interacting with this page's elements
+    //create objects/methods for interacting with this page's elements. Getters and setters
     private By pageSubHeading = By.xpath("//h3[@class='page-subheading'][1]");
     private By titleMr = By.cssSelector("input#id_gender1");
     private By titleMrs = By.cssSelector("input#id_gender2");
@@ -57,21 +57,28 @@ public class CreateAccountPage {
         return "";
     }
 
-    public String setFirstName(String firstName) {
+    public void setFirstName(String firstName) {
         driver.findElement(this.firstName).sendKeys(firstName);
+
+    }
+    public String getFirstName(){
+        String firstName = driver.findElement(this.firstName).getAttribute("value");
         return firstName;
     }
-    public String setLastName(String lastName) {
+    public void setLastName(String lastName) {
         driver.findElement(this.lastName).sendKeys(lastName);
+    }
+    public String getLastName(){
+        String lastName = driver.findElement(this.lastName).getAttribute("value");
         return lastName;
     }
     public void getCompanyName(String companyName) {
         driver.findElement(this.companyName).sendKeys(companyName);
     }
     //check if the registered email from the previous page is used
-    public void getEmail() {
-        driver.findElement(this.email).getAttribute("value");
-
+    public String getEmail() {
+        String email = driver.findElement(this.email).getAttribute("value");
+        return email;
     }
     public void setPassword (String password){
         driver.findElement(this.password).sendKeys(password);

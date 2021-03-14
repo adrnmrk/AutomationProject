@@ -22,7 +22,6 @@ public class BaseTest {
     driver.get("http://automationpractice.com/index.php");
     driver.manage().window().maximize();
 
-    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
     }
 

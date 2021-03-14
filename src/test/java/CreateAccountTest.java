@@ -26,12 +26,13 @@ public class CreateAccountTest extends BaseTest{
         homePage = new HomePage(driver);
         signIn = new SignInPage(driver);
         createAccount = new CreateAccountPage(driver);
+
         homePage.goToSignInPage();
         signIn.createNewAccount("testValid@email.com");
         createAccount.clickTitleMr();
         createAccount.clickTitleMrs();
         createAccount.setFirstName("Ronaldo");
-        createAccount.getLastName("Mcdonaldo");
+        createAccount.setLastName("Mcdonaldo");
         createAccount.getEmail();
         createAccount.setPassword("Password123");
         createAccount.setDateOfBirthDay("12", "12", "2000");
@@ -63,6 +64,13 @@ public class CreateAccountTest extends BaseTest{
         String firstName = createAccount.setFirstName("Ronaldo");
         Assert.assertEquals(firstName, "Ronaldo");
         System.out.println(firstName);
+
+        String lastName = createAccount.setLastName("Mcdonaldo");
+        Assert.assertEquals(lastName, "Mcdonaldo");
+        System.out.println(lastName);
+
+        createAccount.getEmail();
+
 
     }
 

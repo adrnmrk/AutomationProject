@@ -61,15 +61,17 @@ public class CreateAccountPage {
         driver.findElement(this.firstName).sendKeys(firstName);
         return firstName;
     }
-    public void getLastName(String lastName) {
+    public String setLastName(String lastName) {
         driver.findElement(this.lastName).sendKeys(lastName);
+        return lastName;
     }
     public void getCompanyName(String companyName) {
         driver.findElement(this.companyName).sendKeys(companyName);
     }
     //check if the registered email from the previous page is used
     public void getEmail() {
-        driver.findElement(this.email).getText();
+        driver.findElement(this.email).getAttribute("value");
+
     }
     public void setPassword (String password){
         driver.findElement(this.password).sendKeys(password);

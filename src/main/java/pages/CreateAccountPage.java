@@ -17,8 +17,8 @@ public class CreateAccountPage {
     private By pageSubHeading = By.xpath("//h3[@class='page-subheading'][1]");
     private By titleMr = By.cssSelector("input#id_gender1");
     private By titleMrs = By.cssSelector("input#id_gender2");
-    private By firstName = By.name("customer_firstname");
-    private By lastName = By.name("customer_lastname");
+    private By customerFirstname = By.name("customer_firstname");
+    private By customerLastname = By.name("customer_lastname");
     private By companyName = By.id("company");
     private By email = By.id("email");
     private By password = By.id("passwd");
@@ -27,6 +27,8 @@ public class CreateAccountPage {
     private By years = By.id("years");
     private By newsletter = By.id("newsletter");
     private By specialOffers = By.id("optin");
+    private By firstName = By.id("firstname");
+    private By lastName = By.id("lastname");
     private By address1 = By.id("address1");
     private By address2 = By.id("address2");
     private By city = By.id("city");
@@ -53,18 +55,18 @@ public class CreateAccountPage {
             return "Mr";
         return "";
     }
-    public void setFirstName(String firstName) {
-        driver.findElement(this.firstName).sendKeys(firstName);
+    public void setCustomerFirstname(String customerFirstname) {
+        driver.findElement(this.customerFirstname).sendKeys(customerFirstname);
     }
-    public String getFirstName(){
-        String firstName = driver.findElement(this.firstName).getAttribute("value");
+    public String getCustomerFirstname(){
+        String firstName = driver.findElement(this.customerFirstname).getAttribute("value");
         return firstName;
     }
-    public void setLastName(String lastName) {
-        driver.findElement(this.lastName).sendKeys(lastName);
+    public void setCustomerLastname(String customerLastname) {
+        driver.findElement(this.customerLastname).sendKeys(customerLastname);
     }
-    public String getLastName(){
-        String lastName = driver.findElement(this.lastName).getAttribute("value");
+    public String getCustomerLastname(){
+        String lastName = driver.findElement(this.customerLastname).getAttribute("value");
         return lastName;
     }
     public void setCompanyName(String companyName){
@@ -98,6 +100,26 @@ public class CreateAccountPage {
     public boolean signUpOffers (){
         driver.findElement(this.specialOffers).click();
         return true;
+    }
+
+    public String getFirstName() {
+        String firstName = driver.findElement(this.firstName).getAttribute("value");
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        driver.findElement(this.firstName).clear();
+        driver.findElement(this.firstName).sendKeys(firstName);
+    }
+
+    public String getLastName() {
+        String lastName = driver.findElement(this.lastName).getAttribute("value");
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        driver.findElement(this.lastName).clear();
+        driver.findElement(this.lastName).sendKeys(lastName);
     }
     public String getAddress1() {
         String address1 = driver.findElement(this.address1).getAttribute("value");

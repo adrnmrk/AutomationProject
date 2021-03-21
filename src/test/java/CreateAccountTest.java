@@ -51,17 +51,18 @@ public class CreateAccountTest extends BaseTest{
         Assert.assertTrue(title);
         System.out.println(title);
 
-        createAccount.setFirstName("Ronaldo");
-        Assert.assertEquals(createAccount.getFirstName(),"Ronaldo");
+        createAccount.setCustomerFirstname("Ronaldo");
+        Assert.assertEquals(createAccount.getCustomerFirstname(),"Ronaldo");
 
-        createAccount.setLastName("Mcdonaldo");
-        Assert.assertEquals(createAccount.getLastName(), "Mcdonaldo");
+        createAccount.setCustomerLastname("Mcdonaldo");
+        Assert.assertEquals(createAccount.getCustomerLastname(), "Mcdonaldo");
 
         System.out.println(createAccount.getEmail());
         Assert.assertEquals(createAccount.getEmail(), "testValid@email.com");
 
         createAccount.signUpOffers();
         Assert.assertTrue(createAccount.signUpOffers());
+
         createAccount.signUpNewsletter();
         Assert.assertTrue(createAccount.signUpNewsletter());
 
@@ -73,8 +74,6 @@ public class CreateAccountTest extends BaseTest{
 
         createAccount.setCompanyName("ABC Private Limited");
         Assert.assertEquals(createAccount.getCompanyName(), "ABC Private Limited");
-
-        createAccount.set
 
     }
 

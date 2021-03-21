@@ -27,22 +27,19 @@ public class CreateAccountPage {
     private By years = By.id("years");
     private By newsletter = By.id("newsletter");
     private By specialOffers = By.id("optin");
-
-
-
-    public void goToSignInPage() {
-        driver.findElement(this.pageSubHeading).getText();
-    }
-    public void clickTitleMr() {
-        getTitleMr().click();
-    }
+    private By address1 = By.id("address1");
+    private By address2 = By.id("address2");
+    private By city = By.id("city");
+    private By state = By.id("id_state");
+    private By postcode = By.id("postcode");
+    private By country = By.id("id_country");
+    private By otherInfo = By.id("other");
+    private By homePhone = By.id("phone");
+    private By mobilePhone = By.id("phone_mobile");
+    private By addressAlias = By.id("alias");
 
     public WebElement getTitleMr() {
         return driver.findElement(this.titleMr);
-    }
-
-    public void clickTitleMrs() {
-        getTitleMrs().click();
     }
 
     public WebElement getTitleMrs() {
@@ -56,10 +53,8 @@ public class CreateAccountPage {
             return "Mr";
         return "";
     }
-
     public void setFirstName(String firstName) {
         driver.findElement(this.firstName).sendKeys(firstName);
-
     }
     public String getFirstName(){
         String firstName = driver.findElement(this.firstName).getAttribute("value");
@@ -72,8 +67,12 @@ public class CreateAccountPage {
         String lastName = driver.findElement(this.lastName).getAttribute("value");
         return lastName;
     }
-    public void getCompanyName(String companyName) {
+    public void setCompanyName(String companyName){
         driver.findElement(this.companyName).sendKeys(companyName);
+    }
+    public String getCompanyName() {
+        String companyName = driver.findElement(this.companyName).getAttribute("value");
+        return companyName;
     }
     //check if the registered email from the previous page is used
     public String getEmail() {
@@ -83,16 +82,111 @@ public class CreateAccountPage {
     public void setPassword (String password){
         driver.findElement(this.password).sendKeys(password);
     }
-    public void setDateOfBirthDay(String days, String months, String years){
+    public String getPassword(){
+        String password = driver.findElement(this.password).getAttribute("value");
+        return password;
+    }
+    public void setDateOfBirth(String days, String months, String years){
         driver.findElement(this.days).click();
         driver.findElement(this.months).click();
         driver.findElement(this.years).click();
     }
-    public void signUpNewsletter (){
+
+    public boolean signUpNewsletter (){
         driver.findElement(this.newsletter).click();
-    }
-    public void signUpOffers (){
+        return true;    }
+    public boolean signUpOffers (){
         driver.findElement(this.specialOffers).click();
+        return true;
+    }
+    public String getAddress1() {
+        String address1 = driver.findElement(this.address1).getAttribute("value");
+        return address1;
+    }
+
+    public void setAddress1(String address1) {
+        driver.findElement(this.address1).sendKeys(address1);
+    }
+
+    public String getAddress2() {
+        String address2 = driver.findElement(this.address2).getAttribute("value");
+        return address2;
+    }
+
+    public void setAddress2(String address2) {
+        driver.findElement(this.address2).sendKeys(address2);
+    }
+
+    public String getCity() {
+        String city = driver.findElement(this.city).getAttribute("value");
+        return city;
+    }
+
+    public void setCity(String city) {
+        driver.findElement(this.city).sendKeys(city);
+    }
+
+    public String getState() {
+        String state = driver.findElement(this.state).getAttribute("value");
+        return state;
+    }
+
+    public void setState(String state) {
+        driver.findElement(this.state).sendKeys(state);
+    }
+
+    public String getPostcode() {
+        String postcode = driver.findElement(this.postcode).getAttribute("value");
+        return postcode;
+    }
+
+    public void setPostcode(String postcode) {
+        driver.findElement(this.postcode).sendKeys(postcode);
+    }
+
+    public String getCountry() {
+        String country = driver.findElement(this.country).getAttribute("value");
+        return country;
+    }
+
+    public void setCountry(String country) {
+        driver.findElement(this.country).click();
+    }
+
+    public String getOtherInfo() {
+        String otherInfo = driver.findElement(this.otherInfo).getAttribute("value");
+        return otherInfo;
+    }
+
+    public void setOtherInfo(String otherInfo) {
+        driver.findElement(this.otherInfo).sendKeys(otherInfo);
+    }
+
+    public String getHomePhone() {
+        String homePhone = driver.findElement(this.homePhone).getAttribute("value");
+        return homePhone;
+    }
+
+    public void setHomePhone(String homePhone) {
+        driver.findElement(this.homePhone).sendKeys(homePhone);
+    }
+
+    public String getMobilePhone() {
+        String mobilePhone = driver.findElement(this.mobilePhone).getAttribute("value");
+        return mobilePhone;
+    }
+
+    public void setMobilePhone(String mobilePhone) {
+        driver.findElement(this.mobilePhone).sendKeys(mobilePhone);
+    }
+
+    public String getAddressAlias() {
+        String addressAlias = driver.findElement(this.addressAlias).getAttribute("value");
+        return addressAlias;
+    }
+
+    public void setAddressAlias(String addressAlias) {
+        driver.findElement(this.postcode).sendKeys(addressAlias);
     }
 
 }

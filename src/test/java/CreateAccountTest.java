@@ -16,7 +16,6 @@ public class CreateAccountTest extends BaseTest{
     SignInPage signIn;
     CreateAccountPage createAccount;
 
-
     //annotate to run the setUp method from the BaseTest. This is used to prep the webdriver
     @BeforeClass
     public void setUpTest (){
@@ -46,7 +45,7 @@ public class CreateAccountTest extends BaseTest{
 
     }
     @Test
-    public void testRegistration() {
+    public void testRegistrationHappyFlow() {
         createAccount.getTitleMrs().click();
         boolean title = createAccount.getTitleMrs().isSelected();
         Assert.assertTrue(title);
@@ -61,6 +60,21 @@ public class CreateAccountTest extends BaseTest{
         System.out.println(createAccount.getEmail());
         Assert.assertEquals(createAccount.getEmail(), "testValid@email.com");
 
+        createAccount.signUpOffers();
+        Assert.assertTrue(createAccount.signUpOffers());
+        createAccount.signUpNewsletter();
+        Assert.assertTrue(createAccount.signUpNewsletter());
+
+        createAccount.setFirstName("Ronaldo");
+        Assert.assertEquals(createAccount.getFirstName(),"Ronaldo");
+
+        createAccount.setLastName("Mcdonaldo");
+        Assert.assertEquals(createAccount.getLastName(), "Mcdonaldo");
+
+        createAccount.setCompanyName("ABC Private Limited");
+        Assert.assertEquals(createAccount.getCompanyName(), "ABC Private Limited");
+
+        createAccount.set
 
     }
 

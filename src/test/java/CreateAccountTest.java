@@ -48,7 +48,7 @@ public class CreateAccountTest extends BaseTest{
     public void testRegistrationHappyFlow() {
         createAccount.getTitleMrs().click();
         boolean title = createAccount.getTitleMrs().isSelected();
-        Assert.assertTrue(title);
+        Assert.assertNotNull(title);
         System.out.println(title);
 
         createAccount.setCustomerFirstname("Ronaldo");
@@ -74,6 +74,18 @@ public class CreateAccountTest extends BaseTest{
 
         createAccount.setCompanyName("ABC Private Limited");
         Assert.assertEquals(createAccount.getCompanyName(), "ABC Private Limited");
+
+        createAccount.setAddress1("Address Street 1");
+        Assert.assertEquals(createAccount.getAddress1(), "Address Street 1");
+
+        createAccount.setAddress2("Address Avenue 2");
+        Assert.assertEquals(createAccount.getAddress2(), "Address Avenue 2");
+
+        createAccount.setCity("Singapore");
+        Assert.assertEquals(createAccount.getCity(), "Singapore");
+//fix this and check CreateAccountPage
+        createAccount.setState("2");
+        Assert.assertEquals(createAccount.getState(), "2");
 
     }
 

@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 /**
  *Use this class to add and interact with the links and objects in the Account Creation page. Add methods for objects as required.
@@ -147,14 +148,16 @@ public class CreateAccountPage {
     public void setCity(String city) {
         driver.findElement(this.city).sendKeys(city);
     }
-
-    public String getState() {
-        String state = driver.findElement(this.state).getAttribute("value");
+//fix line 152 to 161 and also check CreateAccountTest.java
+    public WebElement getState() {
+        WebElement state = driver.findElement(this.state);
         return state;
     }
 
     public void setState(String state) {
-        driver.findElement(this.state).sendKeys(state);
+        driver.findElement(this.state);
+        Select setState = new Select(getState());
+        setState.selectByIndex(Integer.parseInt(state));
     }
 
     public String getPostcode() {

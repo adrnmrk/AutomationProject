@@ -60,34 +60,34 @@ public class CreateAccountPage {
         driver.findElement(this.customerFirstname).sendKeys(customerFirstname);
     }
     public String getCustomerFirstname(){
-        String firstName = driver.findElement(this.customerFirstname).getAttribute("value");
-        return firstName;
+        return driver.findElement(this.customerFirstname).getAttribute("value");
+
     }
     public void setCustomerLastname(String customerLastname) {
         driver.findElement(this.customerLastname).sendKeys(customerLastname);
     }
     public String getCustomerLastname(){
-        String lastName = driver.findElement(this.customerLastname).getAttribute("value");
-        return lastName;
+        return driver.findElement(this.customerLastname).getAttribute("value");
+
     }
     public void setCompanyName(String companyName){
         driver.findElement(this.companyName).sendKeys(companyName);
     }
     public String getCompanyName() {
-        String companyName = driver.findElement(this.companyName).getAttribute("value");
-        return companyName;
+        return driver.findElement(this.companyName).getAttribute("value");
+
     }
     //check if the registered email from the previous page is used
     public String getEmail() {
-        String email = driver.findElement(this.email).getAttribute("value");
-        return email;
+        return driver.findElement(this.email).getAttribute("value");
+
     }
     public void setPassword (String password){
         driver.findElement(this.password).sendKeys(password);
     }
     public String getPassword(){
-        String password = driver.findElement(this.password).getAttribute("value");
-        return password;
+        return driver.findElement(this.password).getAttribute("value");
+
     }
 //start updating the code here. Similar implementation to the state dropdown
     public String getDayDateOfBirth() {
@@ -109,6 +109,7 @@ public class CreateAccountPage {
         return optionYear.getAttribute("value");
     }
 
+    //select the date of birth by selecting each dropdown for DD MM YYYY
     public void setDateOfBirth(int days, int months, String years){
         driver.findElement(this.days).click();
         driver.findElement(this.months).click();
@@ -122,7 +123,6 @@ public class CreateAccountPage {
 
         Select yearsDropDown = new Select(driver.findElement(this.years));
         yearsDropDown.selectByValue(years);
-
     }
 
     public boolean signUpNewsletter (){
@@ -134,8 +134,7 @@ public class CreateAccountPage {
     }
 
     public String getFirstName() {
-        String firstName = driver.findElement(this.firstName).getAttribute("value");
-        return firstName;
+        return driver.findElement(this.firstName).getAttribute("value");
     }
 
     public void setFirstName(String firstName) {
@@ -144,8 +143,7 @@ public class CreateAccountPage {
     }
 
     public String getLastName() {
-        String lastName = driver.findElement(this.lastName).getAttribute("value");
-        return lastName;
+        return driver.findElement(this.lastName).getAttribute("value");
     }
 
     public void setLastName(String lastName) {
@@ -153,8 +151,8 @@ public class CreateAccountPage {
         driver.findElement(this.lastName).sendKeys(lastName);
     }
     public String getAddress1() {
-        String address1 = driver.findElement(this.address1).getAttribute("value");
-        return address1;
+        return driver.findElement(this.address1).getAttribute("value");
+
     }
 
     public void setAddress1(String address1) {
@@ -162,8 +160,7 @@ public class CreateAccountPage {
     }
 
     public String getAddress2() {
-        String address2 = driver.findElement(this.address2).getAttribute("value");
-        return address2;
+        return driver.findElement(this.address2).getAttribute("value");
     }
 
     public void setAddress2(String address2) {
@@ -171,8 +168,7 @@ public class CreateAccountPage {
     }
 
     public String getCity() {
-        String city = driver.findElement(this.city).getAttribute("value");
-        return city;
+        return driver.findElement(this.city).getAttribute("value");
     }
 
     public void setCity(String city) {
@@ -183,18 +179,18 @@ public class CreateAccountPage {
     public String getState() {
         String state = driver.findElement(this.state).getText();
         Select stateDropDown = new Select(driver.findElement(this.state));
-        WebElement option = stateDropDown.getFirstSelectedOption();
-        return option.getText();
+        WebElement optionState = stateDropDown.getFirstSelectedOption();
+        return optionState.getText();
+
     }
     //this method selects the dropdown for the State field
-    public void setState(int stateIndex) {
+    public void setState(int state) {
         Select stateDropDown = new Select(driver.findElement(this.state));
-        stateDropDown.selectByIndex(stateIndex);
+        stateDropDown.selectByIndex(state);
     }
 
     public String getPostcode() {
-        String postcode = driver.findElement(this.postcode).getAttribute("value");
-        return postcode;
+        return driver.findElement(this.postcode).getAttribute("value");
     }
 
     public void setPostcode(String postcode) {
@@ -202,8 +198,7 @@ public class CreateAccountPage {
     }
 
     public String getCountry() {
-        String country = driver.findElement(this.country).getAttribute("value");
-        return country;
+        return driver.findElement(this.country).getAttribute("value");
     }
 
     public void setCountry(String country) {
@@ -211,8 +206,7 @@ public class CreateAccountPage {
     }
 
     public String getOtherInfo() {
-        String otherInfo = driver.findElement(this.otherInfo).getAttribute("value");
-        return otherInfo;
+        return driver.findElement(this.otherInfo).getAttribute("value");
     }
 
     public void setOtherInfo(String otherInfo) {
@@ -220,8 +214,7 @@ public class CreateAccountPage {
     }
 
     public String getHomePhone() {
-        String homePhone = driver.findElement(this.homePhone).getAttribute("value");
-        return homePhone;
+        return driver.findElement(this.homePhone).getAttribute("value");
     }
 
     public void setHomePhone(String homePhone) {
@@ -229,8 +222,7 @@ public class CreateAccountPage {
     }
 
     public String getMobilePhone() {
-        String mobilePhone = driver.findElement(this.mobilePhone).getAttribute("value");
-        return mobilePhone;
+        return driver.findElement(this.mobilePhone).getAttribute("value");
     }
 
     public void setMobilePhone(String mobilePhone) {
@@ -238,8 +230,7 @@ public class CreateAccountPage {
     }
 
     public String getAddressAlias() {
-        String addressAlias = driver.findElement(this.addressAlias).getAttribute("value");
-        return addressAlias;
+        return driver.findElement(this.addressAlias).getAttribute("value");
     }
 
     public void setAddressAlias(String addressAlias) {

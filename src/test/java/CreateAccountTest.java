@@ -65,12 +65,11 @@ public class CreateAccountTest extends BaseTest{
         Assert.assertEquals(createAccount.getPassword(), "Password1");
 
     //setDateOfBirth selects array index. For example, month 2 = february etc. in the example below
-        // days = 1, months = 2(feb), years = 20 (year 2000)
+        // days = 1, months = 2(feb), String years = 20 (year 2000)
         createAccount.setDateOfBirth(1, 2, "2000");
         Assert.assertEquals(createAccount.getDayDateOfBirth().trim(), "1");
         Assert.assertEquals(createAccount.getMonthDateOfBirth().trim(),"February" );
         Assert.assertEquals(createAccount.getYearDateOfBirth().trim(),"2000" );
-
 
         createAccount.signUpOffers();
         Assert.assertTrue(createAccount.signUpOffers());
@@ -96,8 +95,8 @@ public class CreateAccountTest extends BaseTest{
         createAccount.setCity("Singapore");
         Assert.assertEquals(createAccount.getCity(), "Singapore");
 //fix this and check CreateAccountPage
-        createAccount.setState(1);
-        Assert.assertEquals(createAccount.getState(), "Alabama");
+        createAccount.setState(3);
+        Assert.assertEquals(createAccount.getState(), "Arizona");
         System.out.println(createAccount.getState());
     }
 

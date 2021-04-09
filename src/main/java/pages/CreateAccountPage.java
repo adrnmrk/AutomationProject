@@ -89,10 +89,40 @@ public class CreateAccountPage {
         String password = driver.findElement(this.password).getAttribute("value");
         return password;
     }
-    public void setDateOfBirth(String days, String months, String years){
+//start updating the code here. Similar implementation to the state dropdown
+    public String getDayDateOfBirth() {
+        String dayDateOfBirth = driver.findElement(this.days).getText();
+        Select dayDateOfBirthDrop = new Select(driver.findElement(this.days));
+        WebElement optionDay = dayDateOfBirthDrop.getFirstSelectedOption();
+        return optionDay.getText();
+    }
+    public String getMonthDateOfBirth() {
+        String monthDateOfBirth = driver.findElement(this.months).getText();
+        Select monthDateOfBirthDrop = new Select(driver.findElement(this.months));
+        WebElement optionMonth = monthDateOfBirthDrop.getFirstSelectedOption();
+        return optionMonth.getText();
+    }
+    public String getYearDateOfBirth(){
+        String yearDateOfBirth = driver.findElement(this.years).getText();
+        Select yearDateOfBirthDrop = new Select(driver.findElement(this.years));
+        WebElement optionYear = yearDateOfBirthDrop.getFirstSelectedOption();
+        return optionYear.getAttribute("value");
+    }
+
+    public void setDateOfBirth(int days, int months, String years){
         driver.findElement(this.days).click();
         driver.findElement(this.months).click();
         driver.findElement(this.years).click();
+
+        Select daysDropDown = new Select(driver.findElement(this.days));
+        daysDropDown.selectByIndex(days);
+
+        Select monthsDropDown = new Select(driver.findElement(this.months));
+        monthsDropDown.selectByIndex(months);
+
+        Select yearsDropDown = new Select(driver.findElement(this.years));
+        yearsDropDown.selectByValue(years);
+
     }
 
     public boolean signUpNewsletter (){
@@ -148,16 +178,18 @@ public class CreateAccountPage {
     public void setCity(String city) {
         driver.findElement(this.city).sendKeys(city);
     }
-//fix line 152 to 161 and also check CreateAccountTest.java
-    public WebElement getState() {
-        WebElement state = driver.findElement(this.state);
-        return state;
-    }
 
-    public void setState(String state) {
-        driver.findElement(this.state);
-        Select setState = new Select(getState());
-        setState.selectByIndex(Integer.parseInt(state));
+    //this method retrieves the dropdown list, then selects the array index and return the equivalent state name
+    public String getState() {
+        String state = driver.findElement(this.state).getText();
+        Select stateDropDown = new Select(driver.findElement(this.state));
+        WebElement option = stateDropDown.getFirstSelectedOption();
+        return option.getText();
+    }
+    //this method selects the dropdown for the State field
+    public void setState(int stateIndex) {
+        Select stateDropDown = new Select(driver.findElement(this.state));
+        stateDropDown.selectByIndex(stateIndex);
     }
 
     public String getPostcode() {

@@ -183,7 +183,7 @@ public class CreateAccountPage {
         return optionState.getText();
 
     }
-    //this method selects the dropdown for the State field
+    //this method selects the dropdown for the State field, an array index is used to get the state
     public void setState(int state) {
         Select stateDropDown = new Select(driver.findElement(this.state));
         stateDropDown.selectByIndex(state);
